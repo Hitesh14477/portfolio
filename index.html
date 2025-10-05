@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hitesh - Portfolio</title>
+
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6366f1;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #6366f1;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #1e293b;
+      transition: 0.3s;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow: hidden;
+      padding-top: 80px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .hero p {
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: white;
+      color: #6366f1;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #6366f1;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .profile-img {
+      max-width: 300px;
+      height: 300px;
+      width: 300px;
+      border-radius: 50%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #6366f1;
+    }
+
+    .about-text p {
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      background: #f8fafc;
+      font-weight: 600;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      height: 200px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+    .project-info p {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.8rem;
+      border: 2px solid #dedcdc;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+
+    .submit-btn {
+      padding: 1rem;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      background: #f8fafc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6366f1;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #6366f1;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        padding: 2rem 0;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero h2 {
+        font-size: 1.3rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Hitesh</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm Hitesh</h1>
+      <h2>Frontend Developer & Designer</h2>
+      <p>I create clean, responsive, and user-friendly websites using HTML, CSS, and JavaScript. I love transforming ideas into beautiful digital experiences.</p>
+      <a href="#projects" class="cta-button">View My Work</a>
+      <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <a href="https://github.com/Hitesh14477" target="_blank">
+        <img src="./photo.jpeg" alt="profile-img" class="profile-img">
+      </a>
+      <div class="about-text">
+        <h3>Hello There!</h3>
+        <p>I'm a frontend developer who loves building smooth, modern web interfaces. Passionate about design and performance.</p>
+        <div class="skills">
+          <div class="skill-item">HTML</div>
+          <div class="skill-item">CSS</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">Java</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img">🐶</div>
+        <div class="project-info">
+          <h3>Dog Gallery</h3>
+          <p>A responsive dog gallery built with CSS Grid.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🎥</div>
+        <div class="project-info">
+          <h3>YT Layout</h3>
+          <p>YouTube-style video grid using CSS Grid.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🍕</div>
+        <div class="project-info">
+          <h3>Pizza Recipe</h3>
+          <p>Simple HTML list-based recipe page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <div class="social-links">
+      <a href="https://github.com/Hitesh14477" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/hitesh-choudhary-315556367/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:hitesh.25bcs10428@sst.scaler.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hitesh. All rights reserved.</p>
+    <p>Designed & Built with ❤️ using HTML & CSS</p>
+  </footer>
+
+  
+</body>
+</html>
