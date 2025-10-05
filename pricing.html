@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+             background-color: rgba(94, 179, 253, 0.315);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+        }
+        .pricing-card{
+            gap: 20px;
+            /* margin: 100px; */
+           display: flex;
+        }
+   
+        .card{
+            background-color: white;
+            height: 240px;
+            width: 250px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+           box-shadow: 1px 1px   ;
+            text-align: center;
+            justify-content: center;
+
+        }
+         .card:hover{
+            /* transform: translateY(-10px); */
+            transform: scale(1.10);
+             
+        }
+        
+        li{
+            /* margin-left: 50px; */
+            font-size: 19px;
+            list-style-type: none;
+            
+        }
+        h2{
+            margin-bottom:10px ;
+            font-size: 48px;
+            color: rgb(0, 62, 233);
+            margin-top: 30px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        }
+        h4{
+             margin-bottom:10px ;
+             font-size: 1.3rem;
+            color: #0077ff;
+        }
+        
+        a{
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #002affd5;
+            padding: 5px 15px;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        a:hover{
+            background-color:#002aff ;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="pricing-card">
+    <div class="card">
+        <h2>Basic</h2>
+        <h4>89₹/month</h4>
+        <ul>
+            <li> HD-720p</li>
+            <li> ✔️ ADS</li>
+        </ul>
+<a href="" class="a">Choose Plan</a>
+    </div>
+    <div class="card">
+           <h2>Standard</h2>
+        <h4>129₹/month</h4>
+        <ul>
+            <li>FHD-1080p</li>
+           <li>✔️ ADS</li>
+        </ul>
+        <a href="" class="a">Choose Plan</a>
+    </div>
+    <div class="card">
+           <h2>Premium</h2>
+        <h4>199₹/month</h4>
+        <ul>
+            <li>UHD-4k</li>
+           <li>❌ ADS</li>
+        </ul>
+        <a href="https://www.youtube.com/premium?ybp=Sg0IBhIJdW5saW1pdGVk4AEB" target="_blank">Choose Plan</a>
+    </div>
+    </div>
+</body>
+</html>

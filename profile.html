@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #e0f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            background-color: rgb(255, 255, 255);
+            margin: 100px;
+            border-radius: 12px ;
+            height: 300px;
+            width: 350px;
+            text-align: center;
+            font-family: sans-serif;
+            box-shadow: 2px 2px 2px 2px ;
+            transition:transform 0.3s ease ;
+        }
+        .card:hover{
+            transform: translateY(-10px);
+        }
+        img{
+            width: 100px;
+          margin-top: 40px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;  
+            object-position: top;
+        }
+        h2{
+            margin-top: 20px;
+        }
+        p{
+            margin-top:10px ;
+        }
+        button{
+            margin-top: 20px;
+            font-size: 1em;
+            padding: 5px 8px; 
+            background-color: rgba(238, 231, 231, 0.708);
+            color:black;
+            border-radius: 6px;
+            transition:transform 0.4s ease ;
+        }
+        button:hover{
+            /* padding: 5px 10px ; */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="./photo.jpeg" alt="img">
+        <h2>Hitesh</h2>
+        <p>Frontend Developer, CSS and clean UI</p>
+     <button>Follow</button>
+    </div>
+   
+</body>
+</html>
